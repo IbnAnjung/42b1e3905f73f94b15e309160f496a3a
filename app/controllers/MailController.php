@@ -10,11 +10,6 @@ use App\Models\MailModel;
 class MailController {
   
   use JWTMiddleware;
-  const CONFIG = [
-    'HOST' => 'tls://smtp.gmail.com',
-    'USERNAME' => '',
-    'PASSWORD' => ''
-  ];
 
   public function sendMail($id)
   {
@@ -26,15 +21,15 @@ class MailController {
     }
 
     $mail = new PHPMailer;
-    $mail->Host = SELF::CONFIG['HOST'];
-    $mail->Username = SELF::CONFIG['USERNAME']; 
-    $mail->Password = SELF::CONFIG['PASSWORD'];
+    $mail->Host = $_ENV['MAIL_HOST'];
+    $mail->Username = $_ENV['MAIL_USERNAME']; 
+    $mail->Password = $_ENV['MAIL_PASSWORD'];
     $mail->SMTPSecure = "tls";
     $mail->Port = 587;
     $mail->isSMTP();
     $mail->SMTPDebug = 3;
     $mail->SMTPAuth = true;
-    $mail->From = SELF::CONFIG['USERNAME'];
+    $mail->From = $_ENV['MAIL_USERNAME'];
     $mail->FromName = "angga saputra";
     $mail->addAddress($emailDetail->email, $emailDetail->title); 
     $mail->isHTML(true);

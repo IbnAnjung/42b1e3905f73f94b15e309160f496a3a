@@ -23,8 +23,8 @@ class MessageBrokerController {
   {
 
     $this->_connection = new AMQPStreamConnection(
-      SELF::CONFIG['HOST'], SELF::CONFIG['PORT'], 
-      SELF::CONFIG['USER'], SELF::CONFIG['PASSWORD']);
+      $_ENV['RABBIT_HOST'], $_ENV['RABBIT_PORT'], 
+      $_ENV['RABBIT_USER'], $_ENV['RABBIT_PASSWORD']);
     
     $this->_channel = $this->_connection->channel();
 

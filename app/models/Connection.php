@@ -12,8 +12,8 @@ class Connection{
   public function __construct()
   {
     try {
-      $this->_connection = new PDO('pgsql:host=127.0.0.1;dbname=odeo_mail',
-        'SUPPORT', '');
+      $this->_connection = new PDO('pgsql:host='.$_ENV['DB_HOST'].';dbname= '. $_ENV['DB_NAME'],
+        $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
       $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";

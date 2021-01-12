@@ -8,7 +8,7 @@ trait jwtMiddleware {
   protected function getSecretKey()
   {
 
-    return  "72995b21737c8e74ed4fef3e0430e311";
+    return  $_ENV['JWT_KEY'];
 
   }
   

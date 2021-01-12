@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+require "../bootstrap.php";
 
 use App\Controllers\RequestController;
 use App\Controllers\MailController;
