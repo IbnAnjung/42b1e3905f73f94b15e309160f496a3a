@@ -29,7 +29,7 @@ class UserModel
       $queryInsert->execute();
       
       return true;
-    }catch(PDOException $pdoException) {
+    }catch(PDOException $e) {
       throw new ModelException('query insert gagal');
     }
   }
