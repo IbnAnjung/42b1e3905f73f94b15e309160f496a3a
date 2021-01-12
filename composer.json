@@ -2,7 +2,8 @@
     "require": {
         "phpmailer/phpmailer": "^6.2",
         "php-amqplib/php-amqplib": "^2.12",
-        "firebase/php-jwt": "^5.2"
+        "firebase/php-jwt": "^5.2",
+        "vlucas/phpdotenv": "^5.2"
     },
     "autoload": {
         "psr-4": {
