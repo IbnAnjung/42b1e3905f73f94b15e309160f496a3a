@@ -22,9 +22,11 @@ class AuthController {
     if(!$user) {
       return ['status' => false, 'message' => 'username tidak ketemu'];
     }
-
+    
     if(\password_verify($password, $user['password'])){
       return $this->createJwtToken($user);
+    }else{
+      return ['status' => false, 'message' => 'username dan password tidak sesuai'];
     }
 
   }
