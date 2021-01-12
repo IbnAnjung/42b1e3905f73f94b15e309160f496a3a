@@ -3,9 +3,17 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\RequestController;
 use App\Controllers\MailController;
-use App\Models\Connection;
-print_r(getenv('DB_USER'));
 
-$c = new MailController;
+$request = new RequestController;
 
-echo json_encode($c->sendMail(), true);
+$title = $request->post("title");
+$email = $request->post('email');
+$subject = $request->post('subject');
+$body = $request->post("body");
+
+$mail = new MailController;
+$mail->send($title, $subject, $email, $body);
+
+echo json_encode([
+  'email berhasil di kirim'
+]);
