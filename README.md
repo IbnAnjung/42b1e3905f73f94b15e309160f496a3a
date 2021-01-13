@@ -17,10 +17,11 @@ $ composer install
 
 
 ## HOW TO USE ?
-1. run php brokerReceiver.php  => this will listen your job queue
-2. [POST] /register.php
+1. dump schema.sql => pg_dump -U <username> <dbname> > schema.sql
+2. run php brokerReceiver.php  => this will listen your job queue
+3. [POST] /register.php
     * username & password are required
-3. [POST] /login.php
+4. [POST] /login.php
     * body => username & password are required
     * eg. response => json [
         {
@@ -31,7 +32,7 @@ $ composer install
             "expireAt": 1610468716
         }
     ]
-4. [POST] /sendMaiil.php
+5. [POST] /sendMaiil.php
     * header => Authorization => Bearer <your token> 
     * body =>
         - title
